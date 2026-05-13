@@ -4,947 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-  <title>Nextview Coffee Services | Workplace Coffee Experts</title>
-  <meta name="description" content="Nextview Coffee Services provides premium workplace coffee machines, rentals, installation, maintenance, cleaning and speciality coffee supply for professional environments." />
-
+  <title>Nextview Coffee Services | Premium Workplace Coffee</title>
+  <meta name="description" content="Premium workplace coffee machines, rentals, installation, maintenance and speciality coffee supply for offices, schools and leisure venues." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --bg: #09090b;
-      --panel: #111114;
-      --panel-soft: rgba(255,255,255,0.06);
-      --panel-lighter: rgba(255,255,255,0.09);
-      --line: rgba(255,255,255,0.13);
-      --text: #ffffff;
-      --muted: #a1a1aa;
-      --muted-2: #71717a;
-      --coffee: #3b241a;
-      --amber: #f6c453;
-      --amber-2: #d97706;
-      --cream: #fff7ed;
-      --emerald: #6ee7b7;
-      --stone: #e7e5e4;
-      --shadow: 0 32px 90px rgba(0,0,0,0.42);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font-family: inherit; }
-    button { cursor: pointer; }
-
-    .container {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid var(--line);
-      background: rgba(9,9,11,0.8);
-      backdrop-filter: blur(18px);
-    }
-
-    .header-inner {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-
-    .brand-logo {
-      height: 46px;
-      width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 14px 28px rgba(0,0,0,0.25));
-    }
-
-    .brand-fallback {
-      width: 46px;
-      height: 46px;
-      display: none;
-      place-items: center;
-      border-radius: 18px;
-      background: var(--amber);
-      color: #18110d;
-      font-size: 24px;
-      box-shadow: 0 18px 48px rgba(246,196,83,0.18);
-    }
-
-    .brand-title {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-
-    .brand-subtitle {
-      margin-top: 4px;
-      color: var(--amber);
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      color: #d6d3d1;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .nav a:hover { color: #fff; }
-
-    .mobile-menu-button {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: var(--panel-soft);
-      color: white;
-      font-size: 22px;
-    }
-
-    .mobile-menu {
-      display: none;
-      border-top: 1px solid var(--line);
-      background: rgba(9,9,11,0.96);
-      padding: 14px 20px 22px;
-    }
-
-    .mobile-menu a,
-    .mobile-menu button {
-      display: block;
-      width: 100%;
-      margin-top: 12px;
-      text-align: left;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 22px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 14px;
-      font-weight: 800;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary {
-      background: var(--amber);
-      color: #18110d;
-      box-shadow: 0 18px 48px rgba(246,196,83,0.18);
-    }
-    .btn-primary:hover { background: #fde68a; }
-    .btn-secondary {
-      background: rgba(255,255,255,0.07);
-      color: white;
-      border-color: rgba(255,255,255,0.18);
-    }
-    .btn-secondary:hover { background: rgba(255,255,255,0.12); }
-    .btn-dark {
-      background: #151515;
-      color: white;
-    }
-    .btn-dark:hover { background: #27272a; }
-    .btn-light {
-      background: white;
-      color: #18110d;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 86px 0 90px;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 12% 6%, rgba(246,196,83,0.25), transparent 34%),
-        radial-gradient(circle at 82% 12%, rgba(255,247,237,0.11), transparent 30%),
-        radial-gradient(circle at 70% 92%, rgba(110,231,183,0.13), transparent 28%),
-        linear-gradient(135deg, #09090b 0%, #1c120d 46%, #09090b 100%);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0.12;
-      background-image: radial-gradient(currentColor 1px, transparent 1px);
-      background-size: 34px 34px;
-      color: white;
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      gap: 58px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 24px;
-      border: 1px solid rgba(246,196,83,0.24);
-      background: rgba(246,196,83,0.1);
-      color: #fef3c7;
-      border-radius: 999px;
-      padding: 9px 15px;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--amber);
-      box-shadow: 0 0 0 6px rgba(246,196,83,0.13);
-    }
-
-    h1 {
-      max-width: 850px;
-      font-size: clamp(46px, 7vw, 82px);
-      line-height: 0.96;
-      letter-spacing: -0.075em;
-      font-weight: 800;
-    }
-
-    .hero-copy {
-      margin-top: 26px;
-      max-width: 660px;
-      color: #d6d3d1;
-      font-size: 19px;
-      line-height: 1.75;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 34px;
-    }
-
-    .stats {
-      margin-top: 42px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      max-width: 650px;
-    }
-
-    .stat-card {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.055);
-      border-radius: 26px;
-      padding: 18px;
-      backdrop-filter: blur(10px);
-    }
-
-    .stat-card strong {
-      display: block;
-      font-size: 31px;
-      letter-spacing: -0.04em;
-    }
-
-    .stat-card span {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    .hero-media-wrap { position: relative; }
-    .hero-media-wrap::before {
-      content: "";
-      position: absolute;
-      inset: -18px;
-      border-radius: 48px;
-      background: linear-gradient(135deg, rgba(246,196,83,0.24), rgba(110,231,183,0.12), rgba(255,255,255,0.08));
-      filter: blur(28px);
-    }
-
-    .hero-media {
-      position: relative;
-      min-height: 510px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 46px;
-      background: #151515;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-media img {
-      width: 100%;
-      height: 100%;
-      min-height: 510px;
-      object-fit: cover;
-      display: block;
-      transform: scale(1.03);
-    }
-
-    .hero-media-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0.08) 58%);
-    }
-
-    .floating-card {
-      position: absolute;
-      left: -24px;
-      bottom: -24px;
-      max-width: 270px;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 28px;
-      background: rgba(255,255,255,0.92);
-      color: #18110d;
-      padding: 22px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
-    }
-
-    .floating-card strong {
-      display: block;
-      color: #92400e;
-      font-size: 25px;
-      letter-spacing: -0.04em;
-    }
-
-    .floating-card span {
-      display: block;
-      margin-top: 5px;
-      color: #57534e;
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .fallback-coffee-icon {
-      display: none;
-      min-height: 510px;
-      place-items: center;
-      color: rgba(255,255,255,0.25);
-      font-size: 92px;
-    }
-
-    .section { padding: 94px 0; }
-    .section-white { background: #fff7ed; color: #1c1917; }
-    .section-stone { background: #f5f5f4; color: #1c1917; }
-    .section-dark {
-      background: #09090b;
-      color: white;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 38px;
-      margin-bottom: 46px;
-    }
-
-    .section-kicker {
-      color: #92400e;
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-
-    .section-dark .section-kicker { color: var(--amber); }
-
-    .section-heading h2,
-    .center-heading h2 {
-      margin-top: 12px;
-      max-width: 820px;
-      font-size: clamp(35px, 4.6vw, 56px);
-      line-height: 1.03;
-      letter-spacing: -0.055em;
-      font-weight: 800;
-    }
-
-    .section-heading p,
-    .center-heading p {
-      max-width: 560px;
-      color: #57534e;
-      font-size: 17px;
-      line-height: 1.75;
-    }
-
-    .section-dark .section-heading p,
-    .section-dark .center-heading p { color: var(--muted); }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .why-card {
-      min-height: 268px;
-      border: 1px solid rgba(68,64,60,0.12);
-      border-radius: 32px;
-      background: rgba(255,255,255,0.72);
-      padding: 28px;
-      box-shadow: 0 18px 45px rgba(68,64,60,0.05);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .why-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 28px 70px rgba(68,64,60,0.12);
-    }
-
-    .why-icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 19px;
-      background: #fef3c7;
-      color: #78350f;
-      font-size: 24px;
-      margin-bottom: 22px;
-    }
-
-    .why-card h3 {
-      font-size: 20px;
-      letter-spacing: -0.035em;
-      margin-bottom: 12px;
-    }
-
-    .why-card p {
-      color: #57534e;
-      font-size: 15px;
-      line-height: 1.68;
-    }
-
-    .highlight-card {
-      background: linear-gradient(135deg, #ecfdf5, #fff7ed);
-      border-color: rgba(5,150,105,0.18);
-    }
-
-    .machines-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .machine-card {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid rgba(68,64,60,0.12);
-      border-radius: 38px;
-      background: white;
-      box-shadow: 0 24px 64px rgba(68,64,60,0.1);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .machine-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 32px 90px rgba(68,64,60,0.16);
-    }
-
-    .machine-image-panel {
-      position: relative;
-      min-height: 320px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 10%, rgba(246,196,83,0.22), transparent 35%),
-        linear-gradient(135deg, #292524, #0c0a09);
-    }
-
-    .machine-card:nth-child(1) .machine-image-panel {
-      background:
-        radial-gradient(circle at 50% 10%, rgba(246,196,83,0.28), transparent 35%),
-        linear-gradient(135deg, #fafaf9, #e7e5e4);
-    }
-
-    .machine-card:nth-child(2) .machine-image-panel {
-      background:
-        radial-gradient(circle at 50% 10%, rgba(217,119,6,0.22), transparent 38%),
-        linear-gradient(135deg, #f5f5f4, #d6d3d1);
-    }
-
-    .machine-image-panel img {
-      max-width: 82%;
-      max-height: 270px;
-      object-fit: contain;
-      filter: drop-shadow(0 24px 26px rgba(0,0,0,0.24));
-      transition: transform 0.45s ease;
-    }
-
-    .machine-card:hover .machine-image-panel img { transform: scale(1.06); }
-
-    .machine-badge {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      z-index: 2;
-      border-radius: 999px;
-      background: var(--amber);
-      color: #18110d;
-      padding: 7px 11px;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .machine-content {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      padding: 30px;
-    }
-
-    .machine-content h3 {
-      font-size: 26px;
-      letter-spacing: -0.05em;
-      color: #1c1917;
-    }
-
-    .machine-subtitle {
-      margin-top: 5px;
-      color: #92400e;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .machine-features {
-      display: grid;
-      gap: 14px;
-      margin: 24px 0 26px;
-      flex: 1;
-    }
-
-    .machine-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 11px;
-      color: #57534e;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .tick {
-      flex: 0 0 auto;
-      width: 22px;
-      height: 22px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #fef3c7;
-      color: #78350f;
-      font-size: 13px;
-      font-weight: 900;
-      margin-top: 1px;
-    }
-
-    .service-strip {
-      margin-top: 42px;
-      border: 1px solid rgba(68,64,60,0.12);
-      background: white;
-      border-radius: 32px;
-      padding: 24px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      box-shadow: 0 18px 45px rgba(68,64,60,0.07);
-    }
-
-    .service-strip-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #292524;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .journey-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 48px;
-    }
-
-    .journey-card {
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      background: rgba(255,255,255,0.055);
-      padding: 24px;
-    }
-
-    .journey-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 18px;
-      background: rgba(246,196,83,0.1);
-      color: var(--amber);
-      font-size: 24px;
-      margin-bottom: 18px;
-    }
-
-    .journey-card h3 {
-      font-size: 18px;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
-    }
-
-    .journey-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.66;
-    }
-
-    .sustainability-panel {
-      overflow: hidden;
-      border: 1px solid rgba(68,64,60,0.12);
-      border-radius: 44px;
-      padding: 48px;
-      background:
-        radial-gradient(circle at 10% 12%, rgba(110,231,183,0.28), transparent 34%),
-        radial-gradient(circle at 90% 80%, rgba(246,196,83,0.22), transparent 35%),
-        linear-gradient(135deg, #ecfdf5, #fff7ed);
-      color: #1c1917;
-    }
-
-    .sustainability-grid {
-      display: grid;
-      grid-template-columns: 1fr 0.86fr;
-      gap: 54px;
-      align-items: center;
-    }
-
-    .sustainability-panel h2 {
-      margin-top: 14px;
-      font-size: clamp(35px, 4.7vw, 56px);
-      line-height: 1.03;
-      letter-spacing: -0.055em;
-      font-weight: 800;
-    }
-
-    .sustainability-panel p {
-      margin-top: 20px;
-      color: #57534e;
-      font-size: 17px;
-      line-height: 1.76;
-      max-width: 690px;
-    }
-
-    .sustain-list {
-      border: 1px solid rgba(68,64,60,0.12);
-      border-radius: 32px;
-      background: rgba(255,255,255,0.74);
-      padding: 22px;
-      box-shadow: 0 22px 65px rgba(68,64,60,0.08);
-    }
-
-    .sustain-item {
-      display: flex;
-      gap: 16px;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(68,64,60,0.12);
-    }
-
-    .sustain-item:last-child { border-bottom: 0; }
-    .sustain-icon {
-      flex: 0 0 auto;
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      border-radius: 18px;
-      background: #d1fae5;
-      font-size: 22px;
-    }
-    .sustain-item h3 { font-size: 17px; letter-spacing: -0.02em; }
-    .sustain-item p { margin-top: 5px; font-size: 14px; line-height: 1.65; }
-
-    .site-footer {
-      background: #09090b;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      padding: 58px 0 30px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 0.65fr 0.9fr;
-      gap: 42px;
-      margin-bottom: 42px;
-    }
-
-    .footer-brand .brand-logo { filter: brightness(0) invert(1); opacity: 0.85; }
-    .footer-brand p {
-      max-width: 470px;
-      margin-top: 18px;
-      font-size: 14px;
-      line-height: 1.75;
-    }
-
-    .footer-heading {
-      color: white;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .footer-grid ul { list-style: none; display: grid; gap: 12px; font-size: 14px; }
-    .footer-grid a:hover { color: var(--amber); }
-    .footer-contact p { font-size: 14px; line-height: 1.75; margin-bottom: 12px; }
-
-    .footer-bottom {
-      border-top: 1px solid var(--line);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      font-size: 13px;
-    }
-
-    .footer-links { display: flex; gap: 22px; }
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(8px);
-    }
-
-    .modal-card {
-      width: min(570px, 100%);
-      max-height: calc(100vh - 36px);
-      overflow: auto;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: white;
-      color: #1c1917;
-      border-radius: 32px;
-      box-shadow: var(--shadow);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      padding: 24px 26px;
-      background: linear-gradient(135deg, #3b241a, #111114);
-      color: white;
-    }
-
-    .modal-header-title {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .modal-header h3 { font-size: 21px; letter-spacing: -0.03em; }
-    .close-modal {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      color: white;
-      font-size: 22px;
-      line-height: 1;
-    }
-
-    .lead-form {
-      padding: 28px;
-      display: grid;
-      gap: 15px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .lead-form label {
-      display: block;
-      margin-bottom: 6px;
-      color: #78716c;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .lead-form input {
-      width: 100%;
-      border: 1px solid #d6d3d1;
-      border-radius: 15px;
-      padding: 12px 14px;
-      outline: none;
-      color: #1c1917;
-      font-size: 14px;
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-
-    .lead-form input:focus {
-      border-color: #d97706;
-      box-shadow: 0 0 0 4px rgba(217,119,6,0.12);
-    }
-
-    .form-submit {
-      width: 100%;
-      min-height: 56px;
-      border: 0;
-      border-radius: 18px;
-      background: #3b241a;
-      color: white;
-      font-weight: 900;
-      font-size: 15px;
-      box-shadow: 0 18px 42px rgba(59,36,26,0.18);
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .form-submit:hover { background: #4a2f22; transform: translateY(-1px); }
-    .privacy-note {
-      margin-top: 12px;
-      color: #a8a29e;
-      text-align: center;
-      font-size: 10px;
-      line-height: 1.55;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1020px) {
-      .hero-grid,
-      .sustainability-grid { grid-template-columns: 1fr; }
-      .why-grid,
-      .machines-grid { grid-template-columns: 1fr; }
-      .journey-grid,
-      .service-strip { grid-template-columns: repeat(2, 1fr); }
-      .section-heading { display: block; }
-      .section-heading p { margin-top: 18px; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .floating-card { left: 18px; bottom: 18px; }
-    }
-
-    @media (max-width: 760px) {
-      .container { width: min(100% - 28px, 1180px); }
-      .nav, .site-header .desktop-quote { display: none; }
-      .mobile-menu-button { display: grid; place-items: center; }
-      .mobile-menu.open { display: block; }
-      .hero { padding: 58px 0 68px; }
-      h1 { font-size: 47px; }
-      .hero-copy { font-size: 16px; }
-      .hero-actions, .stats, .journey-grid, .service-strip, .form-grid { grid-template-columns: 1fr; }
-      .stats { display: grid; }
-      .btn { width: 100%; }
-      .hero-media, .hero-media img, .fallback-coffee-icon { min-height: 370px; }
-      .floating-card { position: relative; left: auto; bottom: auto; margin: -42px 18px 0; }
-      .section { padding: 68px 0; }
-      .sustainability-panel { padding: 26px; border-radius: 32px; }
-      .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
-      .brand-title { font-size: 16px; }
-      .brand-subtitle { display: none; }
-    }
+    :root{
+      --ink:#070707;
+      --black:#0a0a0a;
+      --espresso:#22120c;
+      --mocha:#3b2417;
+      --latte:#f8ead6;
+      --cream:#fff8ed;
+      --gold:#f4c35d;
+      --gold-2:#d88922;
+      --green:#7ee0a7;
+      --muted:#b6afa7;
+      --muted-dark:#645c54;
+      --line:rgba(255,255,255,.14);
+      --dark-line:rgba(34,18,12,.13);
+      --shadow:0 36px 100px rgba(0,0,0,.45);
+      --radius:34px;
+      --radius-xl:54px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--black);color:#fff;line-height:1.5;overflow-x:hidden}
+    a{text-decoration:none;color:inherit} button,input{font-family:inherit} button{cursor:pointer}
+    .container{width:min(1200px,calc(100% - 42px));margin:0 auto}
+    .glass{background:rgba(255,255,255,.075);border:1px solid var(--line);backdrop-filter:blur(18px)}
+    .header{position:sticky;top:0;z-index:100;background:rgba(7,7,7,.74);border-bottom:1px solid var(--line);backdrop-filter:blur(20px)}
+    .header-inner{height:82px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:14px}.brand img{height:48px;width:auto;object-fit:contain;filter:drop-shadow(0 16px 28px rgba(0,0,0,.28))}.brand-mark{display:none;width:48px;height:48px;border-radius:18px;place-items:center;background:var(--gold);color:#1b1009;font-size:25px}.brand-title{font-size:18px;font-weight:900;letter-spacing:-.05em;line-height:1}.brand-sub{margin-top:4px;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+    .nav{display:flex;align-items:center;gap:30px;color:#e7ddd1;font-weight:800;font-size:14px}.nav a{opacity:.82}.nav a:hover{opacity:1;color:var(--gold)}
+    .menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.07);color:#fff;font-size:24px}.mobile-menu{display:none;padding:14px 20px 22px;border-top:1px solid var(--line);background:rgba(7,7,7,.96)}.mobile-menu.open{display:block}.mobile-menu a,.mobile-menu button{display:block;width:100%;margin-top:12px;text-align:left}
+    .btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:0 24px;border-radius:999px;border:1px solid transparent;font-size:14px;font-weight:900;transition:.22s ease}.btn:hover{transform:translateY(-2px)}.btn-gold{background:var(--gold);color:#180d07;box-shadow:0 20px 55px rgba(244,195,93,.2)}.btn-gold:hover{background:#ffe19a}.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.18)}.btn-ghost:hover{background:rgba(255,255,255,.13)}.btn-dark{background:#111;color:#fff}.btn-dark:hover{background:#2a211a}.btn-white{background:#fff;color:#160c07}
+    .hero{position:relative;min-height:calc(100vh - 82px);padding:82px 0 72px;overflow:hidden;display:flex;align-items:center}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 14%,rgba(244,195,93,.33),transparent 31%),radial-gradient(circle at 82% 18%,rgba(126,224,167,.18),transparent 28%),linear-gradient(135deg,#080808 0%,#25130c 48%,#080808 100%)}.hero:after{content:"";position:absolute;inset:0;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:62px;align-items:center}.kicker{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(244,195,93,.25);background:rgba(244,195,93,.1);color:#ffe7ad;border-radius:999px;padding:9px 15px;font-size:13px;font-weight:900;letter-spacing:.02em}.dot{width:8px;height:8px;border-radius:999px;background:var(--gold);box-shadow:0 0 0 7px rgba(244,195,93,.15)}
+    h1{margin-top:24px;font-size:clamp(54px,8.2vw,104px);line-height:.88;letter-spacing:-.09em;font-weight:900;max-width:880px}.hero-copy{margin-top:28px;max-width:670px;color:#e8ded2;font-size:20px;line-height:1.75}.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:44px;max-width:680px}.stat{padding:20px;border-radius:28px;background:rgba(255,255,255,.075);border:1px solid var(--line);backdrop-filter:blur(16px)}.stat strong{display:block;font-size:34px;letter-spacing:-.06em}.stat span{display:block;margin-top:4px;color:#c7bdb2;font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    .hero-product{position:relative}.orb{position:absolute;inset:-24px;border-radius:64px;background:linear-gradient(135deg,rgba(244,195,93,.28),rgba(126,224,167,.12),rgba(255,255,255,.08));filter:blur(28px)}.product-frame{position:relative;min-height:620px;border-radius:58px;overflow:hidden;background:linear-gradient(150deg,rgba(255,255,255,.11),rgba(255,255,255,.035));border:1px solid var(--line);box-shadow:var(--shadow)}.product-frame img.hero-machines{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.03);filter:saturate(1.06) contrast(1.02)}.product-frame .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.84),rgba(0,0,0,.18) 56%,rgba(0,0,0,.06))}.hero-card{position:absolute;left:24px;right:24px;bottom:24px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;border-radius:32px;padding:20px;background:rgba(255,255,255,.92);color:#1d120b;box-shadow:0 24px 70px rgba(0,0,0,.28)}.hero-card strong{font-size:22px;letter-spacing:-.04em}.hero-card p{color:#655a50;font-size:14px;margin-top:4px}.hero-card .mini{width:66px;height:66px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(135deg,#2a1710,#090909);font-size:30px;color:var(--gold)}
+    .section{padding:98px 0}.cream{background:var(--cream);color:#20130d}.latte{background:var(--latte);color:#20130d}.dark{background:#080808;color:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.split-heading{display:flex;align-items:end;justify-content:space-between;gap:44px;margin-bottom:48px}.label{color:#995c16;font-size:13px;font-weight:900;letter-spacing:.24em;text-transform:uppercase}.dark .label{color:var(--gold)}.split-heading h2,.center h2{font-size:clamp(38px,5vw,64px);line-height:.98;letter-spacing:-.07em;font-weight:900;margin-top:13px;max-width:850px}.split-heading p,.center p{color:#665b51;font-size:17px;line-height:1.75;max-width:560px}.dark .split-heading p,.dark .center p{color:#bcb2a7}.center{text-align:center;max-width:900px;margin:0 auto}.center h2,.center p{margin-left:auto;margin-right:auto}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.why-card{padding:30px;border-radius:34px;background:rgba(255,255,255,.72);border:1px solid var(--dark-line);box-shadow:0 18px 48px rgba(34,18,12,.06);transition:.24s ease;min-height:270px}.why-card:hover{transform:translateY(-7px);box-shadow:0 30px 80px rgba(34,18,12,.13)}.icon{width:56px;height:56px;border-radius:21px;display:grid;place-items:center;background:#fff0c9;color:#6f3b09;font-size:26px;margin-bottom:22px}.why-card h3{font-size:21px;letter-spacing:-.04em;margin-bottom:12px}.why-card p{color:#655b53;font-size:15px;line-height:1.68}.why-card.green{background:linear-gradient(135deg,#ecfdf5,#fff7ed)}
+    .machines-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.machine{position:relative;overflow:hidden;border-radius:42px;background:#fff;border:1px solid var(--dark-line);box-shadow:0 28px 80px rgba(34,18,12,.11);transition:.25s ease}.machine:hover{transform:translateY(-8px);box-shadow:0 38px 100px rgba(34,18,12,.18)}.machine-visual{height:360px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 8%,rgba(244,195,93,.32),transparent 34%),linear-gradient(135deg,#f7f2ea,#ded7cf)}.machine:nth-child(3) .machine-visual{background:radial-gradient(circle at 50% 8%,rgba(244,195,93,.28),transparent 34%),linear-gradient(135deg,#271712,#070707)}.machine-visual img{max-width:84%;max-height:305px;object-fit:contain;filter:drop-shadow(0 26px 30px rgba(0,0,0,.28));transition:.45s ease}.machine:hover img{transform:scale(1.07) rotate(-1deg)}.badge{position:absolute;top:18px;right:18px;background:var(--gold);color:#170d07;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:999px}.machine-body{padding:30px;display:flex;flex-direction:column;min-height:310px}.machine h3{font-size:27px;letter-spacing:-.055em}.machine .sub{color:#995c16;font-size:12px;font-weight:900;letter-spacing:.17em;text-transform:uppercase;margin-top:5px}.features{display:grid;gap:13px;margin:24px 0;flex:1}.feature{display:flex;align-items:flex-start;gap:11px;color:#635a51;font-size:14px;line-height:1.55}.tick{flex:0 0 auto;width:23px;height:23px;border-radius:50%;background:#fff0c9;color:#6f3b09;display:grid;place-items:center;font-weight:900;font-size:13px;margin-top:1px}
+    .experience{display:grid;grid-template-columns:.92fr 1.08fr;gap:54px;align-items:center}.experience-panel{border-radius:48px;min-height:560px;position:relative;overflow:hidden;background:#111;border:1px solid var(--line);box-shadow:var(--shadow)}.experience-panel img{width:100%;height:100%;min-height:560px;object-fit:cover;display:block;filter:saturate(1.04)}.experience-panel:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.84),rgba(0,0,0,.1))}.experience-list{display:grid;gap:14px}.experience-item{padding:24px;border-radius:30px;background:rgba(255,255,255,.07);border:1px solid var(--line)}.experience-item h3{font-size:20px;letter-spacing:-.035em;margin-bottom:8px}.experience-item p{color:#bcb2a7;font-size:15px;line-height:1.65}
+    .service-strip{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.service-pill{display:flex;align-items:center;gap:12px;border-radius:24px;padding:18px;background:#fff;border:1px solid var(--dark-line);font-size:12px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:#21140d;box-shadow:0 18px 44px rgba(34,18,12,.07)}
+    .sustain{border-radius:54px;padding:54px;background:radial-gradient(circle at 12% 15%,rgba(126,224,167,.33),transparent 31%),radial-gradient(circle at 88% 80%,rgba(244,195,93,.25),transparent 34%),linear-gradient(135deg,#effdf4,#fff8ed);border:1px solid var(--dark-line);box-shadow:0 30px 90px rgba(34,18,12,.09)}.sustain-grid{display:grid;grid-template-columns:1fr .82fr;gap:54px;align-items:center}.sustain h2{margin-top:13px;font-size:clamp(38px,5vw,64px);line-height:.98;letter-spacing:-.07em;font-weight:900}.sustain p{margin-top:20px;color:#655b53;font-size:17px;line-height:1.75}.sustain-list{border-radius:34px;background:rgba(255,255,255,.75);border:1px solid var(--dark-line);padding:22px}.sustain-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid rgba(34,18,12,.13)}.sustain-item:last-child{border-bottom:0}.sustain-icon{width:48px;height:48px;border-radius:18px;display:grid;place-items:center;background:#d9fbe8;font-size:22px;flex:0 0 auto}.sustain-item h3{font-size:18px;letter-spacing:-.03em}.sustain-item p{font-size:14px;margin-top:5px;line-height:1.6}
+    footer{background:#080808;border-top:1px solid var(--line);padding:60px 0 30px;color:#bcb2a7}.footer-grid{display:grid;grid-template-columns:1.3fr .7fr .9fr;gap:44px;margin-bottom:42px}.footer-grid .brand img{filter:brightness(0) invert(1);opacity:.85}.footer-grid p,.footer-grid li{font-size:14px;line-height:1.75}.footer-heading{font-weight:900;color:#fff;margin-bottom:16px}.footer-grid ul{list-style:none;display:grid;gap:11px}.footer-grid a:hover{color:var(--gold)}.footer-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:18px;font-size:13px}.footer-links{display:flex;gap:22px}
+    .modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.74);backdrop-filter:blur(9px);padding:18px}.modal-card{width:min(590px,100%);max-height:calc(100vh - 36px);overflow:auto;border-radius:34px;background:#fff;color:#20130d;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.18)}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 28px;color:#fff;background:linear-gradient(135deg,#3b2417,#090909)}.modal-head h3{font-size:22px;letter-spacing:-.04em}.close{width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font-size:23px}.lead-form{display:grid;gap:15px;padding:28px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.lead-form label{display:block;color:#786d62;font-size:11px;letter-spacing:.11em;text-transform:uppercase;font-weight:900;margin-bottom:6px}.lead-form input{width:100%;border:1px solid #d6d0c9;border-radius:16px;padding:13px 14px;font-size:14px;outline:none}.lead-form input:focus{border-color:var(--gold-2);box-shadow:0 0 0 4px rgba(216,137,34,.13)}.submit{width:100%;min-height:56px;border:0;border-radius:18px;background:#2b170f;color:#fff;font-weight:900;font-size:15px;box-shadow:0 18px 45px rgba(43,23,15,.18)}.privacy{font-size:10px;text-align:center;color:#9b9289;line-height:1.55;margin-top:12px}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:1050px){.hero-grid,.experience,.sustain-grid{grid-template-columns:1fr}.why-grid,.machines-grid{grid-template-columns:1fr}.service-strip{grid-template-columns:repeat(2,1fr)}.split-heading{display:block}.split-heading p{margin-top:18px}.footer-grid{grid-template-columns:1fr}.product-frame{min-height:500px}}
+    @media(max-width:760px){.container{width:min(100% - 28px,1200px)}.nav,.desktop-quote{display:none}.menu-btn{display:grid;place-items:center}.header-inner{height:72px}.brand-sub{display:none}.hero{padding:56px 0 66px;min-height:auto}h1{font-size:49px}.hero-copy{font-size:16px}.hero-actions,.hero-stats,.service-strip,.form-grid{grid-template-columns:1fr;display:grid}.btn{width:100%}.product-frame,.product-frame img.hero-machines{min-height:390px}.hero-card{position:relative;left:auto;right:auto;bottom:auto;margin:-44px 16px 0}.section{padding:70px 0}.machine-visual{height:300px}.experience-panel,.experience-panel img{min-height:380px}.sustain{padding:28px;border-radius:36px}.footer-bottom{flex-direction:column;text-align:center;align-items:center}.footer-links{justify-content:center;flex-wrap:wrap}}
   </style>
 </head>
-
 <body>
-  <header class="site-header">
+  <header class="header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Nextview Coffee Services home">
-        <img src="nextviewLogo.png" alt="Nextview Coffee Services Logo" class="brand-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-        <div class="brand-fallback">☕</div>
-        <div>
-          <div class="brand-title">Nextview</div>
-          <div class="brand-subtitle">Coffee Services</div>
-        </div>
+        <img src="nextviewLogo.png" alt="Nextview Coffee Services Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+        <div class="brand-mark">☕</div>
+        <div><div class="brand-title">Nextview</div><div class="brand-sub">Coffee Services</div></div>
       </a>
-
       <nav class="nav" aria-label="Main navigation">
-        <a href="#why-us">Why Us?</a>
-        <a href="#machines">Our Machines</a>
-        <a href="#service">Service</a>
-        <a href="#sustainability">Sustainability</a>
+        <a href="#why-us">Why Us?</a><a href="#machines">Machines</a><a href="#service">Service</a><a href="#sustainability">Sustainability</a>
       </nav>
-
-      <button onclick="toggleModal('quote-modal')" class="btn btn-primary desktop-quote">Get a Quote</button>
-      <button id="mobile-menu-btn" class="mobile-menu-button" aria-label="Open mobile menu">☰</button>
+      <button onclick="toggleModal('quote-modal')" class="btn btn-gold desktop-quote">Get a Quote</button>
+      <button id="mobile-menu-btn" class="menu-btn" aria-label="Open mobile menu">☰</button>
     </div>
-
     <div id="mobile-menu" class="mobile-menu">
-      <a href="#why-us">Why Us?</a>
-      <a href="#machines">Our Machines</a>
-      <a href="#service">Service</a>
-      <a href="#sustainability">Sustainability</a>
-      <button onclick="toggleModal('quote-modal')" class="btn btn-primary">Get a Quote</button>
+      <a href="#why-us">Why Us?</a><a href="#machines">Machines</a><a href="#service">Service</a><a href="#sustainability">Sustainability</a>
+      <button onclick="toggleModal('quote-modal')" class="btn btn-gold">Get a Quote</button>
     </div>
   </header>
 
@@ -952,180 +81,99 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="reveal visible">
-          <div class="eyebrow"><span class="status-dot"></span>Experts Since 2000</div>
-          <h1>The ultimate coffee experience for your workplace.</h1>
-          <p class="hero-copy">B2B specialists in premium coffee machine sales and rentals for offices, schools and leisure venues. We combine expert equipment, speciality coffee, installation, cleaning and responsive service into one simple workplace drinks solution.</p>
+          <div class="kicker"><span class="dot"></span>Workplace coffee experts since 2000</div>
+          <h1>Exceptional coffee. Effortless service. Every working day.</h1>
+          <p class="hero-copy">Premium bean-to-cup machines, flexible rentals, installation, cleaning, maintenance and speciality coffee supply for offices, schools and leisure venues.</p>
           <div class="hero-actions">
-            <a href="#machines" class="btn btn-primary">View Machines</a>
-            <button onclick="toggleModal('quote-modal')" class="btn btn-secondary">Get a Quote</button>
+            <a href="#machines" class="btn btn-gold">Explore Machines</a>
+            <button onclick="toggleModal('quote-modal')" class="btn btn-ghost">Request Information</button>
           </div>
-          <div class="stats" aria-label="Company highlights">
-            <div class="stat-card"><strong>24+</strong><span>years of expertise</span></div>
-            <div class="stat-card"><strong>3</strong><span>machine families</span></div>
-            <div class="stat-card"><strong>B2B</strong><span>workplace specialists</span></div>
+          <div class="hero-stats">
+            <div class="stat"><strong>24+</strong><span>years of expertise</span></div>
+            <div class="stat"><strong>500</strong><span>cups per day options</span></div>
+            <div class="stat"><strong>B2B</strong><span>workplace specialists</span></div>
           </div>
         </div>
-
-        <div class="hero-media-wrap reveal visible">
-          <div class="hero-media">
-            <img src="NVCoffeeMachines.png" alt="Professional workplace coffee machines" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="fallback-coffee-icon">☕</div>
-            <div class="hero-media-overlay"></div>
-          </div>
-          <div class="floating-card">
-            <strong>24+ Years</strong>
-            <span>Transforming workplace coffee culture with expert equipment, quality beans and reliable support.</span>
+        <div class="hero-product reveal visible">
+          <div class="orb"></div>
+          <div class="product-frame">
+            <img class="hero-machines" src="NVCoffeeMachines.png" alt="Professional workplace coffee machines" onerror="this.outerHTML='<div style=&quot;display:grid;place-items:center;height:100%;font-size:110px;color:rgba(255,255,255,.25)&quot;>☕</div>'">
+            <div class="shade"></div>
+            <div class="hero-card">
+              <div><strong>Built for busy workplaces</strong><p>Sales, rental, installation, maintenance and drinks supply in one service relationship.</p></div>
+              <div class="mini">☕</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="why-us" class="section section-white">
+    <section id="why-us" class="section cream">
       <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <div class="section-kicker">Nextview Experience</div>
-            <h2>Why work with us</h2>
-          </div>
-          <p>We combine decades of coffee machine expertise with a personal, service-led approach to ensure every workplace can serve great coffee with confidence.</p>
+        <div class="split-heading reveal">
+          <div><div class="label">Nextview Experience</div><h2>Why ambitious workplaces choose us.</h2></div>
+          <p>We combine decades of equipment knowledge, responsive service and premium coffee supply to help every workplace deliver a better drinks experience.</p>
         </div>
-
         <div class="why-grid">
-          <article class="why-card reveal">
-            <div class="why-icon">☕</div>
-            <h3>Coffee machine experts since 2000</h3>
-            <p>We work directly with manufacturing partners and personally specify our machines to ensure quality, reliability and a better daily coffee experience.</p>
-          </article>
-          <article class="why-card reveal">
-            <div class="why-icon">🏢</div>
-            <h3>Business to business specialists</h3>
-            <p>From local and national office groups to schools and leisure venues, we understand the demands of professional environments.</p>
-          </article>
-          <article class="why-card reveal">
-            <div class="why-icon">🔧</div>
-            <h3>Industry leading service</h3>
-            <p>We respond quickly when issues arise, with installation, maintenance and cleaning included to keep your coffee service running smoothly.</p>
-          </article>
-          <article class="why-card reveal">
-            <div class="why-icon">📦</div>
-            <h3>Everything for workplace drinks</h3>
-            <p>Fast, convenient and secure ordering, with next-day delivery and credit accounts available to support your business needs.</p>
-          </article>
-          <article class="why-card reveal">
-            <div class="why-icon">🫘</div>
-            <h3>Superior freshly roasted coffees</h3>
-            <p>An exclusive, award-winning range of speciality-grade, sustainable and traceable beans, roasted to perfection.</p>
-          </article>
-          <article class="why-card highlight-card reveal">
-            <div class="why-icon">🌱</div>
-            <h3>Committed to sustainability</h3>
-            <p>We continually review our processes to support the planet, our industry and the communities connected to every cup.</p>
-          </article>
+          <article class="why-card reveal"><div class="icon">☕</div><h3>Coffee machine experts since 2000</h3><p>We work directly with manufacturing partners and specify our machines to deliver quality, reliability and consistent performance.</p></article>
+          <article class="why-card reveal"><div class="icon">🏢</div><h3>Business to business specialists</h3><p>From local offices to schools and leisure venues, we understand the pace, pressure and expectations of professional environments.</p></article>
+          <article class="why-card reveal"><div class="icon">🔧</div><h3>Industry leading service</h3><p>Fast support, expert engineers, installation, maintenance and cleaning keep your coffee service running smoothly.</p></article>
+          <article class="why-card reveal"><div class="icon">📦</div><h3>Everything for workplace drinks</h3><p>Convenient ordering, next-day delivery and credit accounts simplify the way your organisation manages refreshments.</p></article>
+          <article class="why-card reveal"><div class="icon">🫘</div><h3>Freshly roasted speciality coffee</h3><p>An exclusive range of award-winning, sustainable and traceable beans, roasted to deliver a great cup every time.</p></article>
+          <article class="why-card green reveal"><div class="icon">🌱</div><h3>Committed to sustainability</h3><p>We continually review our processes to support the planet, our industry and the communities behind every cup.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="machines" class="section section-stone">
+    <section id="machines" class="section latte">
       <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <div class="section-kicker">Our Equipment</div>
-            <h2>Bespoke coffee solutions for every workplace.</h2>
-          </div>
-          <p>Compare our premium bean-to-cup range, designed to meet the demands of small offices, growing teams and high-volume environments.</p>
+        <div class="split-heading reveal">
+          <div><div class="label">Our Equipment</div><h2>Three machines. One premium coffee standard.</h2></div>
+          <p>Compare our bean-to-cup range and choose the right capacity, drinks menu and connection type for your workplace.</p>
         </div>
-
         <div class="machines-grid">
-          <article class="machine-card reveal">
-            <div class="machine-image-panel">
-              <img src="NVCoffeeMachineA.png" alt="Nextview Model A" onerror="this.outerHTML='<div style=&quot;font-size:86px;color:rgba(0,0,0,0.18)&quot;>☕</div>'">
-            </div>
-            <div class="machine-content">
-              <h3>Nextview Model A</h3>
-              <div class="machine-subtitle">Entry Level Efficiency</div>
-              <div class="machine-features">
-                <div class="machine-feature"><span class="tick">✓</span><span><strong>10 Drinks:</strong> Espresso, latte, chocolate and more.</span></div>
-                <div class="machine-feature"><span class="tick">✓</span><span><strong>100 cups per day</strong> capacity.</span></div>
-                <div class="machine-feature"><span class="tick">✓</span><span><strong>Tank connection</strong> for flexible placement.</span></div>
-              </div>
-              <button onclick="toggleModal('quote-modal')" class="btn btn-dark">Get a Quote</button>
-            </div>
+          <article class="machine reveal">
+            <div class="machine-visual"><img src="NVCoffeeMachineA.png" alt="Nextview Model A" onerror="this.outerHTML='<div style=&quot;font-size:90px;color:rgba(0,0,0,.18)&quot;>☕</div>'"></div>
+            <div class="machine-body"><h3>Nextview Model A</h3><div class="sub">Entry Level Efficiency</div><div class="features"><div class="feature"><span class="tick">✓</span><span><strong>10 drinks:</strong> espresso, latte, chocolate and more.</span></div><div class="feature"><span class="tick">✓</span><span><strong>100 cups per day</strong> capacity.</span></div><div class="feature"><span class="tick">✓</span><span><strong>Tank connection</strong> for flexible placement.</span></div></div><button onclick="toggleModal('quote-modal')" class="btn btn-dark">Get a Quote</button></div>
           </article>
-
-          <article class="machine-card reveal">
-            <div class="machine-badge">Popular</div>
-            <div class="machine-image-panel">
-              <img src="NVCoffeeMachineB.png" alt="Nextview Model B" onerror="this.outerHTML='<div style=&quot;font-size:86px;color:rgba(0,0,0,0.18)&quot;>☕</div>'">
-            </div>
-            <div class="machine-content">
-              <h3>Nextview Model B</h3>
-              <div class="machine-subtitle">The Versatile All-Rounder</div>
-              <div class="machine-features">
-                <div class="machine-feature"><span class="tick">✓</span><span><strong>15 Drinks:</strong> Full menu plus leaf tea.</span></div>
-                <div class="machine-feature"><span class="tick">✓</span><span><strong>200 cups per day</strong> capacity.</span></div>
-                <div class="machine-feature"><span class="tick">✓</span><span><strong>Plumbed tap connection</strong> for higher-volume sites.</span></div>
-              </div>
-              <button onclick="toggleModal('quote-modal')" class="btn btn-dark">Get a Quote</button>
-            </div>
+          <article class="machine reveal">
+            <div class="badge">Popular</div><div class="machine-visual"><img src="NVCoffeeMachineB.png" alt="Nextview Model B" onerror="this.outerHTML='<div style=&quot;font-size:90px;color:rgba(0,0,0,.18)&quot;>☕</div>'"></div>
+            <div class="machine-body"><h3>Nextview Model B</h3><div class="sub">The Versatile All-Rounder</div><div class="features"><div class="feature"><span class="tick">✓</span><span><strong>15 drinks:</strong> full menu plus leaf tea.</span></div><div class="feature"><span class="tick">✓</span><span><strong>200 cups per day</strong> capacity.</span></div><div class="feature"><span class="tick">✓</span><span><strong>Plumbed tap connection</strong> for higher-volume sites.</span></div></div><button onclick="toggleModal('quote-modal')" class="btn btn-dark">Get a Quote</button></div>
           </article>
-
-          <article class="machine-card reveal">
-            <div class="machine-badge">Pro Choice</div>
-            <div class="machine-image-panel">
-              <img src="NVCoffeeMachineC.png" alt="Nextview Model C" onerror="this.outerHTML='<div style=&quot;font-size:86px;color:rgba(255,255,255,0.25)&quot;>☕</div>'">
-            </div>
-            <div class="machine-content">
-              <h3>Nextview Model C</h3>
-              <div class="machine-subtitle">High Volume Powerhouse</div>
-              <div class="machine-features">
-                <div class="machine-feature"><span class="tick">✓</span><span><strong>20+ Drinks:</strong> Speciality-grade menu.</span></div>
-                <div class="machine-feature"><span class="tick">✓</span><span><strong>500 cups per day</strong> capacity.</span></div>
-                <div class="machine-feature"><span class="tick">✓</span><span><strong>Plumbed tap connection</strong> for professional high-demand environments.</span></div>
-              </div>
-              <button onclick="toggleModal('quote-modal')" class="btn btn-dark">Get a Quote</button>
-            </div>
+          <article class="machine reveal">
+            <div class="badge">Pro Choice</div><div class="machine-visual"><img src="NVCoffeeMachineC.png" alt="Nextview Model C" onerror="this.outerHTML='<div style=&quot;font-size:90px;color:rgba(255,255,255,.25)&quot;>☕</div>'"></div>
+            <div class="machine-body"><h3>Nextview Model C</h3><div class="sub">High Volume Powerhouse</div><div class="features"><div class="feature"><span class="tick">✓</span><span><strong>20+ drinks:</strong> speciality-grade menu.</span></div><div class="feature"><span class="tick">✓</span><span><strong>500 cups per day</strong> capacity.</span></div><div class="feature"><span class="tick">✓</span><span><strong>Plumbed tap connection</strong> for high-demand environments.</span></div></div><button onclick="toggleModal('quote-modal')" class="btn btn-dark">Get a Quote</button></div>
           </article>
         </div>
-
-        <div id="service" class="service-strip reveal">
-          <div class="service-strip-item"><span class="tick">✓</span>All-inclusive rental plans</div>
-          <div class="service-strip-item"><span class="tick">✓</span>Installation & cleaning</div>
-          <div class="service-strip-item"><span class="tick">✓</span>Speciality coffee supply</div>
-          <div class="service-strip-item"><span class="tick">✓</span>Rapid site service</div>
+        <div class="service-strip reveal">
+          <div class="service-pill"><span class="tick">✓</span>All-inclusive rental plans</div><div class="service-pill"><span class="tick">✓</span>Installation & cleaning</div><div class="service-pill"><span class="tick">✓</span>Speciality coffee supply</div><div class="service-pill"><span class="tick">✓</span>Rapid site service</div>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark">
-      <div class="container">
-        <div class="center-heading reveal" style="text-align:center; max-width: 850px; margin: 0 auto;">
-          <div class="section-kicker">A complete workplace coffee service</div>
-          <h2 style="margin-left:auto; margin-right:auto;">Sales, rental, installation, maintenance and coffee supply in one place.</h2>
-          <p style="margin-left:auto; margin-right:auto;">Nextview Coffee Services helps organisations simplify workplace drinks by combining expert equipment selection with reliable service, flexible rental options and high-quality consumables.</p>
-        </div>
-
-        <div class="journey-grid">
-          <article class="journey-card reveal"><div class="journey-icon">💬</div><h3>Consultation</h3><p>We help identify the right machine, drinks menu, capacity and service model for your environment.</p></article>
-          <article class="journey-card reveal"><div class="journey-icon">☕</div><h3>Machine selection</h3><p>Choose from premium bean-to-cup models designed for different levels of daily demand.</p></article>
-          <article class="journey-card reveal"><div class="journey-icon">🔧</div><h3>Installation & care</h3><p>Installation, maintenance and cleaning are included to reduce operational friction.</p></article>
-          <article class="journey-card reveal"><div class="journey-icon">📦</div><h3>Ongoing supply</h3><p>Speciality coffee, workplace drinks and support services keep your teams fuelled every day.</p></article>
+    <section id="service" class="section dark">
+      <div class="container experience">
+        <div class="experience-panel reveal"><img src="NVCoffeeMachines.png" alt="Workplace coffee service" onerror="this.outerHTML='<div style=&quot;height:560px;display:grid;place-items:center;font-size:110px;color:rgba(255,255,255,.2)&quot;>☕</div>'"></div>
+        <div class="reveal">
+          <div class="label">Complete Service</div>
+          <div class="center" style="text-align:left;margin:0;max-width:none"><h2>From first conversation to every cup poured.</h2><p style="margin-left:0">Nextview Coffee Services brings together machine expertise, rental flexibility, installation, cleaning, maintenance and coffee supply into one seamless service.</p></div>
+          <div class="experience-list" style="margin-top:28px">
+            <article class="experience-item"><h3>Consultation and machine selection</h3><p>We help match your daily cup volume, drink preferences and site requirements to the right machine.</p></article>
+            <article class="experience-item"><h3>Installation, maintenance and cleaning</h3><p>Our service model is designed to reduce disruption and keep your workplace coffee running reliably.</p></article>
+            <article class="experience-item"><h3>Ongoing supply and support</h3><p>Freshly roasted coffee, workplace drinks and responsive service help your teams stay fuelled every day.</p></article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="sustainability" class="section section-stone">
+    <section id="sustainability" class="section cream">
       <div class="container">
-        <div class="sustainability-panel reveal">
-          <div class="sustainability-grid">
-            <div>
-              <div class="section-kicker">Sustainability</div>
-              <h2>Better coffee experiences with responsible choices.</h2>
-              <p>We offer speciality-grade, sustainable and traceable beans, while continually reviewing our processes to benefit the planet, our industry and our community.</p>
-              <button onclick="toggleModal('quote-modal')" class="btn btn-primary" style="margin-top: 30px;">Request Information</button>
-            </div>
+        <div class="sustain reveal">
+          <div class="sustain-grid">
+            <div><div class="label">Sustainability</div><h2>Great coffee with responsible choices.</h2><p>We offer speciality-grade, sustainable and traceable beans, while continually reviewing our processes to benefit the planet, our industry and our community.</p><button onclick="toggleModal('quote-modal')" class="btn btn-gold" style="margin-top:30px">Request Information</button></div>
             <div class="sustain-list">
               <article class="sustain-item"><div class="sustain-icon">🌱</div><div><h3>Traceable beans</h3><p>Coffee selected with quality, sustainability and provenance in mind.</p></div></article>
-              <article class="sustain-item"><div class="sustain-icon">⚙️</div><div><h3>Right-sized machines</h3><p>Equipment matched to real workplace demand to support efficient operations.</p></div></article>
+              <article class="sustain-item"><div class="sustain-icon">⚙️</div><div><h3>Right-sized machines</h3><p>Equipment matched to workplace demand to support efficient operation.</p></div></article>
               <article class="sustain-item"><div class="sustain-icon">🤝</div><div><h3>Long-term service</h3><p>Maintenance, cleaning and support help extend equipment life and reduce disruption.</p></div></article>
             </div>
           </div>
@@ -1134,180 +182,46 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="#top">
-            <img src="nextviewLogo.png" alt="Nextview Coffee Services Logo" class="brand-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="brand-fallback">☕</div>
-            <div>
-              <div class="brand-title" style="color:white;">Nextview Coffee Services</div>
-              <div class="brand-subtitle">Workplace Coffee Experts</div>
-            </div>
-          </a>
-          <p>Leaders in premium coffee supply and cutting-edge coffee machine technology for professional environments since 2000.</p>
-        </div>
-        <div>
-          <div class="footer-heading">Company</div>
-          <ul>
-            <li><a href="#why-us">About Us</a></li>
-            <li><a href="#machines">Machines</a></li>
-            <li><a href="#service">Service</a></li>
-            <li><a href="#sustainability">Sustainability</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <div class="footer-heading">Contact</div>
-          <p>Fred. Roeskestraat 100, office 006<br>1076 ED Amsterdam, Netherlands</p>
-          <p>hello@nextviewcoffee.com</p>
-          <p>+31 20 123 4567</p>
-        </div>
+        <div><a class="brand" href="#top"><img src="nextviewLogo.png" alt="Nextview Coffee Services Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"><div class="brand-mark">☕</div><div><div class="brand-title">Nextview Coffee Services</div><div class="brand-sub">Workplace Coffee Experts</div></div></a><p style="margin-top:18px;max-width:470px">Leaders in premium coffee supply and cutting-edge coffee machine technology for professional environments since 2000.</p></div>
+        <div><div class="footer-heading">Company</div><ul><li><a href="#why-us">About Us</a></li><li><a href="#machines">Machines</a></li><li><a href="#service">Service</a></li><li><a href="#sustainability">Sustainability</a></li></ul></div>
+        <div><div class="footer-heading">Contact</div><p>Fred. Roeskestraat 100, office 006<br>1076 ED Amsterdam, Netherlands</p><p style="margin-top:12px">hello@nextviewcoffee.com</p><p>+31 20 123 4567</p></div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Nextview Coffee Services. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="#">Legal</a>
-          <a href="#">Privacy</a>
-          <a href="#">Cookies</a>
-        </div>
-      </div>
+      <div class="footer-bottom"><p>&copy; 2024 Nextview Coffee Services. All rights reserved.</p><div class="footer-links"><a href="#">Legal</a><a href="#">Privacy</a><a href="#">Cookies</a></div></div>
     </div>
   </footer>
 
-  <!-- Quote Modal: Salesforce Web-to-Lead Integration -->
-  <div id="quote-modal" class="modal" style="display: none;">
+  <div id="quote-modal" class="modal" style="display:none;">
     <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-header-title">
-          <span>✉️</span>
-          <h3>Request Information</h3>
-        </div>
-        <button onclick="toggleModal('quote-modal')" class="close-modal" aria-label="Close quote form">&times;</button>
-      </div>
-
+      <div class="modal-head"><h3>Request Information</h3><button onclick="toggleModal('quote-modal')" class="close" aria-label="Close quote form">&times;</button></div>
       <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DQH00000KU0Yh" method="POST" class="lead-form">
-        <input type="hidden" name="oid" value="00DQH00000KU0Yh">
-        <input type="hidden" name="retURL" value="https://odelarosa1.github.io/NVcoffee">
-
-        <div class="form-grid">
-          <div>
-            <label for="first_name">First Name</label>
-            <input id="first_name" name="first_name" maxlength="40" type="text" required>
-          </div>
-          <div>
-            <label for="last_name">Last Name</label>
-            <input id="last_name" name="last_name" maxlength="80" type="text" required>
-          </div>
-        </div>
-
-        <div class="form-grid">
-          <div>
-            <label for="email">Business Email</label>
-            <input id="email" name="email" maxlength="80" type="email" required>
-          </div>
-          <div>
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" maxlength="40" type="text" required>
-          </div>
-        </div>
-
-        <div>
-          <label for="company">Company / Organisation</label>
-          <input id="company" name="company" maxlength="40" type="text" required>
-        </div>
-
-        <div class="form-grid">
-          <div>
-            <label for="city">City</label>
-            <input id="city" name="city" maxlength="40" type="text" required>
-          </div>
-          <div>
-            <label for="state">State / Province</label>
-            <input id="state" name="state" maxlength="20" type="text" required>
-          </div>
-        </div>
-
-        <div style="padding-top: 8px;">
-          <button type="submit" name="submit" class="form-submit">Send My Request</button>
-          <p class="privacy-note">By clicking send, you agree to our privacy policy and to be contacted regarding your coffee service requirements.</p>
-        </div>
+        <input type="hidden" name="oid" value="00DQH00000KU0Yh"><input type="hidden" name="retURL" value="https://odelarosa1.github.io/NVcoffee">
+        <div class="form-grid"><div><label for="first_name">First Name</label><input id="first_name" name="first_name" maxlength="40" type="text" required></div><div><label for="last_name">Last Name</label><input id="last_name" name="last_name" maxlength="80" type="text" required></div></div>
+        <div class="form-grid"><div><label for="email">Business Email</label><input id="email" name="email" maxlength="80" type="email" required></div><div><label for="phone">Phone</label><input id="phone" name="phone" maxlength="40" type="text" required></div></div>
+        <div><label for="company">Company / Organisation</label><input id="company" name="company" maxlength="40" type="text" required></div>
+        <div class="form-grid"><div><label for="city">City</label><input id="city" name="city" maxlength="40" type="text" required></div><div><label for="state">State / Province</label><input id="state" name="state" maxlength="20" type="text" required></div></div>
+        <div style="padding-top:8px"><button type="submit" name="submit" class="submit">Send My Request</button><p class="privacy">By clicking send, you agree to our privacy policy and to be contacted regarding your coffee service requirements.</p></div>
       </form>
     </div>
   </div>
 
   <script>
-    function toggleModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      const currentStyle = window.getComputedStyle(modal).display;
-
-      if (currentStyle === 'none') {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      } else {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    }
-
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    if (menuBtn && menu) {
-      menuBtn.addEventListener('click', () => {
-        menu.classList.toggle('open');
-      });
-    }
-
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (menu) menu.classList.remove('open');
-      });
-    });
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('quote-modal');
-      if (event.target === modal) {
-        toggleModal('quote-modal');
-      }
-    };
-
-    document.addEventListener('keydown', function(event) {
-      const modal = document.getElementById('quote-modal');
-      if (event.key === 'Escape' && modal && window.getComputedStyle(modal).display !== 'none') {
-        toggleModal('quote-modal');
-      }
-    });
-
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
-
-    revealElements.forEach((element) => observer.observe(element));
+    function toggleModal(id){const modal=document.getElementById(id);if(!modal)return;const currentStyle=window.getComputedStyle(modal).display;if(currentStyle==='none'){modal.style.display='flex';document.body.style.overflow='hidden'}else{modal.style.display='none';document.body.style.overflow='auto'}}
+    const menuBtn=document.getElementById('mobile-menu-btn');const menu=document.getElementById('mobile-menu');if(menuBtn&&menu){menuBtn.addEventListener('click',()=>menu.classList.toggle('open'))}
+    document.querySelectorAll('#mobile-menu a').forEach(link=>{link.addEventListener('click',()=>{if(menu)menu.classList.remove('open')})});
+    window.onclick=function(event){const modal=document.getElementById('quote-modal');if(event.target===modal){toggleModal('quote-modal')}};
+    document.addEventListener('keydown',function(event){const modal=document.getElementById('quote-modal');if(event.key==='Escape'&&modal&&window.getComputedStyle(modal).display!=='none'){toggleModal('quote-modal')}});
+    const revealElements=document.querySelectorAll('.reveal');const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:.12});revealElements.forEach((element)=>observer.observe(element));
   </script>
 
-  <!-- Agentforce / Salesforce Embedded Messaging Integration -->
   <script type='text/javascript'>
-    function initEmbeddedMessaging() {
-      try {
-        embeddedservice_bootstrap.settings.language = 'en_US';
-
-        embeddedservice_bootstrap.init(
-          '00DQH00000KU0Yh',
-          'NV_web_channel',
-          'https://nvcoffeeservices-dev-ed.develop.my.site.com/ESWNVwebchannel1770279203681',
-          {
-            scrt2URL: 'https://nvcoffeeservices-dev-ed.develop.my.salesforce-scrt.com'
-          }
-        );
-      } catch (err) {
-        console.error('Error loading Embedded Messaging: ', err);
-      }
+    function initEmbeddedMessaging(){
+      try{
+        embeddedservice_bootstrap.settings.language='en_US';
+        embeddedservice_bootstrap.init('00DQH00000KU0Yh','NV_web_channel','https://nvcoffeeservices-dev-ed.develop.my.site.com/ESWNVwebchannel1770279203681',{scrt2URL:'https://nvcoffeeservices-dev-ed.develop.my.salesforce-scrt.com'});
+      }catch(err){console.error('Error loading Embedded Messaging: ',err);}
     };
   </script>
   <script type='text/javascript' src='https://nvcoffeeservices-dev-ed.develop.my.site.com/ESWNVwebchannel1770279203681/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
